@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youssef Abdelnasser - AI Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            scroll-behavior: smooth;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --bg-color: #121212;
+            --second-bg-color: #1e1e1e;
+            --text-color: #f5f5f5;
+            --main-color: #6a4fff;
+            --accent-color: #8c7bff;
+        }
+
+        html {
+            font-size: 62.5%;
+            overflow-x: hidden;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 10rem 9% 2rem;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .header.sticky {
+            border-bottom: .1rem solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            cursor: default;
+        }
+
+        .navbar a {
+            font-size: 1.7rem;
+            color: var(--text-color);
+            margin-left: 4rem;
+            transition: .3s;
+        }
+
+        .navbar a:hover, .navbar a.active {
+            color: var(--main-color);
+        }
+
+        #menu-icon {
+            font-size: 3.6rem;
+            color: var(--text-color);
+            display: none;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-content h3 {
+            font-size: 3.2rem;
+            font-weight: 700;
+        }
+
+        .home-content h3:nth-of-type(2) {
+            margin-bottom: 2rem;
+        }
+
+        span {
+            color: var(--main-color);
+        }
+
+        .home-content h1 {
+            font-size: 5.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .home-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-img img {
+            width: 25vw; /* تصغير حجم الصورة */
+            border-radius: 50%;
+            box-shadow: 0 0 25px var(--main-color);
+            animation: floatImage 4s ease-in-out infinite;
+        }
+
+        @keyframes floatImage {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-2.4rem); }
+            100% { transform: translateY(0); }
+        }
+
+        .home-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+            max-width: 600px;
+        }
+
+        .social-media {
+            display: flex;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .social-media a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 4rem;
+            height: 4rem;
+            background: transparent;
+            border: .2rem solid var(--main-color);
+            border-radius: 50%;
+            color: var(--main-color);
+            transition: .5s ease;
+        }
+
+        .social-media a:hover {
+            background: var(--main-color);
+            color: var(--second-bg-color);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.8rem;
+            background: var(--main-color);
+            border-radius: 4rem;
+            box-shadow: 0 0 1rem var(--main-color);
+            font-size: 1.6rem;
+            color: var(--second-bg-color);
+            letter-spacing: .1rem;
+            font-weight: 600;
+            transition: .5s ease;
+            margin-top: 2rem;
+        }
+
+        .btn:hover {
+            box-shadow: none;
+            transform: translateY(-3px);
+        }
+
+        .about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5rem;
+            background: var(--second-bg-color);
+        }
+
+        .about-img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-img img {
+            width: 25vw; /* تصغير حجم الصورة */
+            border-radius: 10px;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 4.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .about-content h2 {
+            text-align: left;
+            line-height: 1.2;
+        }
+
+        .about-content h3 {
+            font-size: 2.6rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            font-size: 1.6rem;
+            margin: 2rem 0 3rem;
+        }
+
+        .education, .experience {
+            margin-bottom: 5rem;
+        }
+
+        .education-item, .experience-item {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .education-item h3, .experience-item h3 {
+            font-size: 2rem;
+            color: var(--main-color);
+        }
+
+        .education-item p, .experience-item p {
+            font-size: 1.6rem;
+            margin: 0.5rem 0;
+        }
+
+        .services h2 {
+            margin-bottom: 5rem;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .skill-category {
+            background: var(--second-bg-color);
+            padding: 2rem;
+            border-radius: 1rem;
+        }
+
+        .skill-category h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--main-color);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: var(--bg-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 2rem;
+            font-size: 1.4rem;
+            transition: .3s;
+        }
+
+        .skill-item:hover {
+            background: var(--main-color);
+            transform: translateY(-3px);
+        }
+
+        .portfolio {
+            background: var(--second-bg-color);
+        }
+
+        .portfolio h2 {
+            margin-bottom: 4rem;
+        }
+
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .portfolio-container .portfolio-box {
+            position: relative;
+            border-radius: 2rem;
+            box-shadow: 0 0 1rem var(--bg-color);
+            overflow: hidden;
+            display: flex;
+            height: 250px;
+        }
+
+        .portfolio-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s ease;
+        }
+
+        .portfolio-box:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-box .portfolio-layer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.1), var(--main-color));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0 4rem;
+            transform: translateY(100%);
+            transition: .5s ease;
+        }
+
+        .portfolio-box:hover .portfolio-layer {
+            transform: translateY(0);
+        }
+
+        .portfolio-layer h4 {
+            font-size: 2.5rem;
+        }
+
+        .portfolio-layer p {
+            font-size: 1.4rem;
+            margin: .3rem 0 1rem;
+        }
+
+        .portfolio-layer .tech-used {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-layer a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 5rem;
+            height: 5rem;
+            background: var(--text-color);
+            border-radius: 50%;
+        }
+
+        .portfolio-layer a i {
+            font-size: 2rem;
+            color: var(--second-bg-color);
+        }
+
+        .contact {
+            background: var(--second-bg-color);
+            padding: 6rem 9% 2rem;
+            min-height: 70vh;
+        }
+
+        .contact h2 {
+            margin-bottom: 3rem;
+            text-align: center;
+            font-size: 4.5rem;
+        }
+
+        .contact-info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .contact-info {
+            background: var(--bg-color);
+            padding: 3rem;
+            border-radius: 2rem;
+            text-align: center;
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(106, 79, 255, 0.3);
+        }
+
+        .contact-info i {
+            font-size: 4rem;
+            color: var(--main-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            color: var(--main-color);
+        }
+
+        .contact-info p {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info a {
+            color: var(--text-color);
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .contact-info a:hover {
+            color: var(--main-color);
+        }
+
+        .linkedin-box {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .linkedin-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 3rem;
+            background: var(--main-color);
+            border-radius: 2rem;
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 600;
+            transition: .3s;
+        }
+
+        .linkedin-link:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 79, 255, 0.5);
+        }
+
+        .linkedin-link i {
+            margin-right: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 2rem 9%;
+            background: var(--bg-color);
+        }
+
+        .footer-text p {
+            font-size: 1.6rem;
+        }
+
+        .footer-iconTap a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: .8rem;
+            background: var(--main-color);
+            border-radius: .8rem;
+            transition: .5s ease;
+        }
+
+        .footer-iconTap a:hover {
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .footer-iconTap a i {
+            font-size: 2.4rem;
+            color: var(--second-bg-color);
+        }
+
+        .certifications {
+            background: var(--second-bg-color);
+        }
+
+        .cert-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-item {
+            background: var(--bg-color);
+            padding: 2rem;
+            border-radius: 1rem;
+            transition: .3s;
+        }
+
+        .cert-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(106, 79, 255, 0.3);
+        }
+
+        .cert-item h3 {
+            font-size: 1.8rem;
+            color: var(--main-color);
+            margin-bottom: 1rem;
+        }
+
+        .cert-item p {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            html { font-size: 55%; }
+        }
+
+        @media (max-width: 991px) {
+            .header { padding: 2rem 3%; }
+            section { padding: 10rem 3% 2rem; }
+            .footer { padding: 2rem 3%; }
+            .portfolio { padding-bottom: 7rem; }
+            .contact { min-height: auto; }
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon { display: block; }
+            .navbar {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 1rem 3%;
+                background: var(--bg-color);
+                border-top: .1rem solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+                display: none;
+            }
+            .navbar.active { display: block; }
+            .navbar a {
+                display: block;
+                font-size: 2rem;
+                margin: 3rem 0;
+            }
+            .home { flex-direction: column; }
+            .home-content h3 { font-size: 2.6rem; }
+            .home-content h1 { font-size: 5rem; }
+            .home-img img { width: 60vw; margin-top: 4rem; }
+            .about { flex-direction: column-reverse; }
+            .about img { width: 60vw; margin-top: 4rem; }
+            .portfolio h2 { margin-bottom: 3rem; }
+            .portfolio-container { grid-template-columns: repeat(2, 1fr); }
+            .contact-info-container { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 617px) {
+            .portfolio-container { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 450px) {
+            html { font-size: 50%; }
+        }
+
+        @media (max-width: 365px) {
+            .home-img img, .about-img img { width: 90vw; }
+            .footer { flex-direction: column-reverse; }
+            .footer p { text-align: center; margin-top: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="logo">Youssef.</a>
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Projects</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>Youssef Abdelnasser</h1>
+            <h3>And I'm a <span class="multiple-text"></span></h3>
+            <p>Aspiring AI Engineer with a strong foundation in machine learning, deep learning, and computer vision. Seeking opportunities to apply and enhance my technical and research skills in developing intelligent systems that solve real-world problems.</p>
+            
+            <a href="#" class="btn">Download CV</a>
+        </div>
+        <div class="home-img">
+            <img src="images/profile.jpg" alt="Youssef Abdelnasser">
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-img">
+            <img src="images/about.jpg" alt="About Youssef">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">About <span>Me</span></h2>
+            <h3>AI Engineer & Data Scientist</h3>
+            <p>I am a passionate AI engineer with expertise in machine learning, deep learning, and computer vision. Currently pursuing a Bachelor of Artificial Intelligence at Beni Suef National University with a Very Good grade. I have hands-on experience in building predictive models, optimizing AI pipelines, and developing intelligent systems.</p>
+            <div class="education">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <h3>Beni Suef National University</h3>
+                    <p>Bachelor of Artificial Intelligence (Grade: Very Good)</p>
+                    <p>Oct. 2022 – Jun. 2026</p>
+                    <p>Beni Suef, Egypt</p>
+                </div>
+            </div>
+            <div class="experience">
+                <h3>Experience</h3>
+                <div class="experience-item">
+                    <h3>Technocolabs Softwares</h3>
+                    <p>Data Scientist Intern (Remote)</p>
+                    <p>- Preprocessed data, engineered features, and applied machine learning techniques</p>
+                    <p>- Optimized AI data pipelines and improved algorithm performance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="services" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skill-list">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">Java</div>
+                    <div class="skill-item">C++</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>AI & Machine Learning</h3>
+                <div class="skill-list">
+                    <div class="skill-item">TensorFlow</div>
+                    <div class="skill-item">PyTorch</div>
+                    <div class="skill-item">Keras</div>
+                    <div class="skill-item">Scikit-learn</div>
+                    <div class="skill-item">SVM</div>
+                    <div class="skill-item">Decision Trees</div>
+                    <div class="skill-item">KNN</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Computer Vision</h3>
+                <div class="skill-list">
+                    <div class="skill-item">OpenCV</div>
+                    <div class="skill-item">Image Processing</div>
+                    <div class="skill-item">Feature Extraction</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Data Tools</h3>
+                <div class="skill-list">
+                    <div class="skill-item">Pandas</div>
+                    <div class="skill-item">NumPy</div>
+                    <div class="skill-item">Matplotlib</div>
+                    <div class="skill-item">Seaborn</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Databases</h3>
+                <div class="skill-list">
+                    <div class="skill-item">SQL Server</div>
+                    <div class="skill-item">MySQL</div>
+                    <div class="skill-item">PostgreSQL</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skill-list">
+                    <div class="skill-item">Jupyter Notebook</div>
+                    <div class="skill-item">Google Colab</div>
+                    <div class="skill-item">VS Code</div>
+                    <div class="skill-item">Django</div>
+                    <div class="skill-item">HTML/CSS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="portfolio" id="portfolio">
+        <h2 class="heading">My <span>Projects</span></h2>
+        <div class="portfolio-container">
+            <div class="portfolio-box">
+                <img src="images/port1.jpg" alt="Gym Management System">
+                <div class="portfolio-layer">
+                    <h4>Gym Management System</h4>
+                    <p>Full-stack web-based gym system covering memberships, bookings, payments, and attendance.</p>
+                    <div class="tech-used">Python, Django, HTML, CSS, SQL</div>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/port2.jpg" alt="Heart Disease Prediction">
+                <div class="portfolio-layer">
+                    <h4>Heart Disease Prediction App</h4>
+                    <p>User-friendly app to predict heart disease based on clinical input using logistic regression.</p>
+                    <div class="tech-used">Python, Scikit-learn, Logistic Regression</div>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/port3.jpg" alt="Plant Disease Prediction">
+                <div class="portfolio-layer">
+                    <h4>Plant Disease Prediction</h4>
+                    <p>CNN model to classify plant diseases from leaf images using data augmentation and transfer learning.</p>
+                    <div class="tech-used">Python, TensorFlow, CNN</div>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/port4.jpg" alt="Face Mask Detection">
+                <div class="portfolio-layer">
+                    <h4>Face Mask Detection</h4>
+                    <p>Real-time face mask detector with OpenCV and TensorFlow achieving high accuracy.</p>
+                    <div class="tech-used">Python, OpenCV, TensorFlow</div>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+            <div class="portfolio-box">
+                <img src="images/port5.jpg" alt="Sentiment Analysis">
+                <div class="portfolio-layer">
+                    <h4>Sentiment Analysis</h4>
+                    <p>NLP model to classify restaurant reviews as positive or negative using Naive Bayes.</p>
+                    <div class="tech-used">Python, NLTK, Naive Bayes</div>
+                    <a href="#"><i class="bx bx-link-external"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications" id="certifications">
+        <h2 class="heading">My <span>Certifications</span></h2>
+        <div class="cert-container">
+            <div class="cert-item">
+                <h3>Financial Inclusion and Banking Operations</h3>
+                <p>Banque Misr (Mar. 2025)</p>
+            </div>
+            <div class="cert-item">
+                <h3>Huawei HCIA-AI Training</h3>
+                <p>Sept. 2024</p>
+            </div>
+            <div class="cert-item">
+                <h3>ITI Summer Training Program</h3>
+                <p>Python, HTML, CSS, PostgreSQL (Jul. 2024)</p>
+                <p>Grade: 96%</p>
+            </div>
+            <div class="cert-item">
+                <h3>AI Winter Training</h3>
+                <p>British University in Egypt (Jan. 2025)</p>
+            </div>
+            <div class="cert-item">
+                <h3>Aspire Leaders Program</h3>
+                <p>Aspire Institute (Harvard University, USA) (Mar. – May 2025)</p>
+                <p>40 hours - Critical thinking, communication, and leadership</p>
+            </div>
+            <div class="cert-item">
+                <h3>Shabab Mobtakroon</h3>
+                <p>Ministry of Youth and Sports (Feb. – Apr. 2025)</p>
+                <p>AI, ML and Quantum ML - 60 hours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me!</span></h2>
+        
+        <div class="contact-info-container">
+            <div class="contact-info">
+                <a href="tel:+201096378767">
+                    <i class='bx bx-phone'></i>
+                    <h3>Phone</h3>
+                    <p>+20 1096378767</p>
+                    <p>+20 1143277598</p>
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <a href="mailto:youssef.abdelnasser54@gmail.com">
+                    <i class='bx bx-envelope'></i>
+                    <h3>Email</h3>
+                    <p>Send me an email</p>
+                </a>
+            </div>
+            
+            <div class="contact-info">
+                <a href="https://github.com/YoussefAbdelnasser11" target="_blank">
+                    <i class='bx bxl-github'></i>
+                    <h3>GitHub</h3>
+                    <p>Visit my GitHub</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="linkedin-box">
+            <a href="https://linkedin.com/in/youssef-abdelnasser" target="_blank" class="linkedin-link">
+                <i class='bx bxl-linkedin'></i>
+                Connect on LinkedIn
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-text">
+            <p>Copyright &copy; 2025 by Youssef Abdelnasser | All Rights Reserved</p>
+        </div>
+        <div class="footer-iconTap">
+            <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        // Toggle icon navbar
+        let menuIcon = document.querySelector("#menu-icon");
+        let navbar = document.querySelector(".navbar");
+        menuIcon.onclick = () => {
+            menuIcon.classList.toggle("bx-x");
+            navbar.classList.toggle("active");
+        };
+
+        // Scroll sections active links
+        let sections = document.querySelectorAll("section");
+        let navLinks = document.querySelectorAll("header nav a");
+
+        window.onscroll = () => {
+            sections.forEach(sec => {
+                let top = window.scrollY;
+                let offset = sec.offsetTop - 150;
+                let height = sec.offsetHeight;
+                let id = sec.getAttribute("id");
+
+                if (top >= offset && top < offset + height) {
+                    navLinks.forEach(links => {
+                        links.classList.remove("active");
+                        document.querySelector("header nav a[href*=" + id + "]").classList.add("active");
+                    });
+                }
+            });
+
+            // Sticky navbar
+            let header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 100);
+
+            // Remove toggle icon and navbar when click navbar link
+            menuIcon.classList.remove("bx-x");
+            navbar.classList.remove("active");
+        };
+
+        // Scroll reveal
+        ScrollReveal({
+            distance: "80px",
+            duration: 2000,
+            delay: 200,
+        });
+        ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
+        ScrollReveal().reveal(".home-img, .portfolio-box, .contact-info-container, .cert-container", { origin: "bottom" });
+        ScrollReveal().reveal(".home-content h1, .about-img", { origin: "left" });
+        ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
+
+        // Typed js
+        const typed = new Typed('.multiple-text', {
+            strings: ['AI Engineer', 'Data Scientist', 'Machine Learning Specialist'],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+    </script>
+</body>
+</html>
